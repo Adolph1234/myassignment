@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="5;url=admin-login.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Logout - Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f2f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .logout-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .logout-box i {
+      color: #2c3e50;
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+    .logout-box h3 {
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="logout-box">
+    <i class="fas fa-sign-out-alt"></i>
+    <h3>You have been logged out.</h3>
+    <p>You will be redirected to the login page shortly.</p>
+    <p>If not redirected, <a href="admin-login.html">click here</a>.</p>
+  </div>
+
+  <!-- Optional JS redirect (in case meta doesn't work) -->
+  <script>
+    setTimeout(() => {
+      window.location.href = "admin-login.html";
+    }, 5000);
+  </script>
+</body>
+</html>

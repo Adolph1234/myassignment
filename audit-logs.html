@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit Log - Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: #f4f6f9;">
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><i class="fas fa-file-alt"></i> Audit Log</h2>
+      <a href="admin-panel.html" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+
+    <!-- Search -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="searchLog" onkeyup="filterLogs()" placeholder="Search logs by user or action..." />
+      </div>
+    </div>
+
+    <!-- Log Table -->
+    <div class="table-responsive">
+      <table class="table table-striped table-hover" id="auditLogTable">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Timestamp</th>
+            <th>User</th>
+            <th>Role</th>
+            <th>Action</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2025-05-27 10:15</td>
+            <td>Jane Doe</td>
+            <td>Farmer</td>
+            <td>Submitted Claim</td>
+            <td>Crop damage due to flood</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2025-05-27 11:00</td>
+            <td>Admin John</td>
+            <td>Admin</td>
+            <td>Approved Claim</td>
+            <td>Claim ID #102 approved</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>2025-05-27 12:20</td>
+            <td>OracleNode01</td>
+            <td>Oracle</td>
+            <td>Reported Weather</td>
+            <td>Rainfall > 100mm in region 4</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>2025-05-27 12:30</td>
+            <td>Admin John</td>
+            <td>Admin</td>
+            <td>Added New Farmer</td>
+            <td>Samuel Okello registered</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function filterLogs() {
+      const input = document.getElementById('searchLog').value.toLowerCase();
+      const rows = document.querySelectorAll('#auditLogTable tbody tr');
+      rows.forEach(row => {
+        const user = row.cells[2].textContent.toLowerCase();
+        const action = row.cells[4].textContent.toLowerCase();
+        row.style.display = user.includes(input) || action.includes(input) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

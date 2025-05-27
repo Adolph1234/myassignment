@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System Maintenance - Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: #f5f7fa;">
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><i class="fas fa-cogs"></i> System Maintenance</h2>
+      <a href="admin-panel.html" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+      </a>
+    </div>
+
+    <div class="row g-4">
+      <!-- Smart Contract Upgrade -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-primary"><i class="fas fa-code-branch"></i> Smart Contract Upgrade</h5>
+            <p class="card-text">Deploy a new version of the smart contract if upgrades or bug fixes are available.</p>
+            <button class="btn btn-outline-success" onclick="confirmUpgrade()">Upgrade Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- System Backup -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-warning"><i class="fas fa-database"></i> Backup System</h5>
+            <p class="card-text">Create a backup of system data including user records, policies, and claims.</p>
+            <button class="btn btn-outline-warning" onclick="backupSystem()">Backup Data</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- System Reset -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-danger"><i class="fas fa-exclamation-triangle"></i> Reset System</h5>
+            <p class="card-text">Danger Zone: Reset contract state. This will clear claims and temporary data.</p>
+            <button class="btn btn-danger" onclick="resetSystem()">Reset System</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node Status -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-info"><i class="fas fa-network-wired"></i> Node Health Check</h5>
+            <p class="card-text">Verify if blockchain nodes and oracles are online and syncing correctly.</p>
+            <button class="btn btn-outline-info" onclick="checkNodes()">Check Nodes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Simulation Scripts -->
+  <script>
+    function confirmUpgrade() {
+      if (confirm("Are you sure you want to upgrade the smart contract?")) {
+        alert("Smart contract upgraded successfully.");
+      }
+    }
+
+    function backupSystem() {
+      alert("System backup has been completed and stored securely.");
+    }
+
+    function resetSystem() {
+      if (confirm("This will erase temporary data. Continue?")) {
+        alert("System reset completed.");
+      }
+    }
+
+    function checkNodes() {
+      alert("All nodes are online and synchronized.");
+    }
+  </script>
+</body>
+</html>

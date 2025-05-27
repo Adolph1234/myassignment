@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply for Livestock Insurance</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      background-color: #f4f7f9;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      max-width: 850px;
+      margin-top: 50px;
+    }
+    .form-section {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #dee2e6;
+      padding-bottom: 20px;
+    }
+    .form-section:last-child {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    .form-label i {
+      margin-right: 6px;
+      color: #495057;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container bg-white shadow rounded p-4">
+    <!-- Back to Dashboard Button -->
+    <div class="mb-3">
+      <a href="indexdashboard.html" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+      </a>
+    </div>
+
+    <h2 class="text-primary mb-4 text-center">
+      <i class="fas fa-file-signature"></i> Livestock Insurance Application
+    </h2>
+
+    <form id="insuranceForm">
+
+      <!-- Farmer Information -->
+      <div class="form-section">
+        <div class="section-title"><i class="fas fa-user"></i> Farmer Information</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" class="form-control" name="farmerName" placeholder="John Doe" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label"><i class="fas fa-wallet"></i> Ethereum Wallet Address</label>
+            <input type="text" class="form-control" name="walletAddress" placeholder="0xABC123..." required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Livestock Details -->
+      <div class="form-section">
+        <div class="section-title"><i class="fas fa-cow"></i> Livestock Information</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label"><i class="fas fa-dna"></i> Type of Livestock</label>
+            <select class="form-select" name="animalType" required>
+              <option value="">-- Select Type --</option>
+              <option value="cattle">Cattle</option>
+              <option value="goat">Goat</option>
+              <option value="sheep">Sheep</option>
+              <option value="pig">Pig</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label"><i class="fas fa-hashtag"></i> Number of Animals</label>
+            <input type="number" class="form-control" name="animalCount" placeholder="e.g. 12" required />
+          </div>
+        </div>
+        <div class="mt-3">
+          <label class="form-label"><i class="fas fa-tags"></i> Animal Tag IDs (comma-separated)</label>
+          <input type="text" class="form-control" name="animalIDs" placeholder="A123,B234,C456" required />
+        </div>
+      </div>
+
+      <!-- Insurance Policy -->
+      <div class="form-section">
+        <div class="section-title"><i class="fas fa-file-contract"></i> Insurance Coverage</div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label"><i class="fas fa-shield-alt"></i> Coverage Type</label>
+            <select class="form-select" name="coverageType" required>
+              <option value="">-- Choose Coverage --</option>
+              <option value="basic">Basic (Disease Only)</option>
+              <option value="standard">Standard (Disease + Death)</option>
+              <option value="premium">Premium (All-inclusive)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label"><i class="fas fa-money-check-alt"></i> Coverage Amount (ETH)</label>
+            <input type="number" class="form-control" name="coverageAmount" step="0.01" placeholder="e.g. 2.5" required />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label"><i class="fas fa-coins"></i> Premium (ETH)</label>
+            <input type="number" class="form-control" name="premiumAmount" step="0.01" placeholder="e.g. 0.25" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg mt-3">
+          <i class="fas fa-paper-plane"></i> Submit Application
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Simulate Form Submission -->
+  <script>
+    document.getElementById('insuranceForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Insurance application submitted successfully (simulate smart contract call).");
+    });
+  </script>
+</body>
+</html>

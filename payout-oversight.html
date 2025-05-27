@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payout Oversight - Admin Dashboard</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      padding: 30px 20px;
+      min-height: 100vh;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 1100px;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.07);
+    }
+    h1 {
+      font-weight: 700;
+      color: #27ae60;
+      margin-bottom: 25px;
+      letter-spacing: 1.1px;
+      border-bottom: 3px solid #27ae60;
+      padding-bottom: 8px;
+    }
+    .btn-back {
+      background-color: #6c757d;
+      border: none;
+      color: white;
+      padding: 8px 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-back:hover {
+      background-color: #5a6268;
+      color: white;
+      text-decoration: none;
+    }
+    .summary-cards {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .card-summary {
+      flex: 1 1 220px;
+      background-color: #eaf7ee;
+      border-radius: 12px;
+      padding: 20px 25px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.05);
+      color: #27ae60;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.15rem;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .card-summary .value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-top: 8px;
+      color: #145a32;
+    }
+    .card-summary:hover {
+      background-color: #d1edd8;
+    }
+    table {
+      font-size: 0.95rem;
+    }
+    th {
+      background-color: #27ae60;
+      color: white;
+      user-select: none;
+    }
+    tbody tr:hover {
+      background-color: #e8f5e9;
+    }
+    .status-success {
+      color: #27ae60;
+      font-weight: 600;
+    }
+    .status-pending {
+      color: #f39c12;
+      font-weight: 600;
+    }
+    .status-failed {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px 10px;
+      }
+      .container {
+        padding: 20px;
+      }
+      .summary-cards {
+        flex-direction: column;
+      }
+      .card-summary {
+        flex: 1 1 100%;
+      }
+      table {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1><i class="fas fa-hand-holding-dollar"></i> Payout Oversight</h1>
+
+    <a href="admin-panel.html" class="btn-back">
+      <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+      <div class="card-summary">
+        Total Payouts
+        <div class="value" id="totalPayouts">112</div>
+      </div>
+      <div class="card-summary">
+        Pending Payouts
+        <div class="value text-warning" id="pendingPayouts">8</div>
+      </div>
+      <div class="card-summary">
+        Amount Paid (USD)
+        <div class="value" id="amountPaid">$56,780</div>
+      </div>
+      <div class="card-summary">
+        Failed Payouts
+        <div class="value text-danger" id="failedPayouts">3</div>
+      </div>
+    </div>
+
+    <!-- Payout Records Table -->
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Payout ID</th>
+            <th>Farmer Name</th>
+            <th>Wallet Address</th>
+            <th>Amount (USD)</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Transaction Hash</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PYT00112</td>
+            <td>John Doe</td>
+            <td>0xABC1234DEF567...</td>
+            <td>$1200</td>
+            <td>2025-05-20</td>
+            <td class="status-success">Completed</td>
+            <td><a href="#" target="_blank" rel="noopener noreferrer">0x9f8d...</a></td>
+          </tr>
+          <tr>
+            <td>PYT00111</td>
+            <td>Mary Johnson</td>
+            <td>0x789XYZ456ABC...</td>
+            <td>$450</td>
+            <td>2025-05-22</td>
+            <td class="status-pending">Pending</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>PYT00110</td>
+            <td>Peter Smith</td>
+            <td>0x345ABC789XYZ...</td>
+            <td>$700</td>
+            <td>2025-05-18</td>
+            <td class="status-success">Completed</td>
+            <td><a href="#" target="_blank" rel="noopener noreferrer">0x56fa...</a></td>
+          </tr>
+          <tr>
+            <td>PYT00109</td>
+            <td>Linda Carter</td>
+            <td>0xDEF456ABC789...</td>
+            <td>$800</td>
+            <td>2025-05-19</td>
+            <td class="status-failed">Failed</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>PYT00108</td>
+            <td>James Wilson</td>
+            <td>0x123XYZ456ABC...</td>
+            <td>$1000</td>
+            <td>2025-05-21</td>
+            <td class="status-success">Completed</td>
+            <td><a href="#" target="_blank" rel="noopener noreferrer">0x1a2b...</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Font Awesome -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
